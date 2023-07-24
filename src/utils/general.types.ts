@@ -21,3 +21,8 @@ export interface PaginationParams {
   info: PaginationItems;
   results: unknown;
 }
+
+export interface CustomRequest {
+  data?:unknown,
+  error?: unknown
+}

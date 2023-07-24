@@ -27,7 +27,7 @@ import Character from "@/app/domain/Character";
 import CharacterResponse from "@/app/infrastructure/response/CharacterResponse";
 import CharacterRepository from "@/app/infrastructure/repository/CharacterRepository";
 import CharacterCard from "@/components/home/CharacterCard.vue";
-import { PaginationItems } from "@/utils/general.types";
+import { PaginationItems, PaginationParams } from "@/utils/general.types";
 import { ref, Ref, watch } from "vue";
 
 const page = ref(1);
@@ -37,13 +37,14 @@ const pending = ref(true);
 
 const fetchDataFromApi = async (page: number) => {
   pending.value = true;
-  const response = await CharacterRepository.fetchMany({
+  const { data } = await CharacterRepository.fetchMany({
     page: page,
   });
 
-  if (response) {
-    optionsParams.value = response.info;
-    characters.value = Character.many(response.results as CharacterResponse[]);
+  if (data) {
+    const newData = data as PaginationParams;
+    optionsParams.value = newData.info;
+    characters.value = Character.many(newData.results as CharacterResponse[]);
   }
   pending.value = false;
 };

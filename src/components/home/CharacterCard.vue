@@ -7,7 +7,6 @@
 
 <script setup lang="ts">
 import Character from "@/app/domain/Character";
-import { onMounted } from "vue";
 import { PropType } from "vue";
 
 const props = defineProps({
@@ -17,9 +16,6 @@ const props = defineProps({
   },
 });
 
-onMounted(() => {
-  console.log(props.character);
-});
 </script>
 
 <style scoped lang="scss">

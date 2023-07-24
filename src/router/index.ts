@@ -14,6 +14,18 @@ const routes = [
     ],
   },
   {
+    path: '/character',
+    component: () => import('@/layouts/default/Default.vue'),
+    children: [
+      {
+        path: ':idCharacter',
+        name: 'character',
+        component: () => import('@/views/Character.vue'),
+      },
+    ],
+  },
+
+  {
     path: '/contact',
     component: () => import('@/layouts/default/Contact.vue'),
     children: [
