@@ -8,8 +8,9 @@ export interface CharacterOrigin {
   url: string
 }
 
-
-
+export interface ParamsMany {
+  page: number;
+}
 export interface PaginationItems {
   count: number;
   pages: number;

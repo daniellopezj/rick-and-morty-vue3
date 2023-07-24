@@ -1,9 +1,9 @@
 <template>
   <v-container>
-    <div>
+    <div v-if="!pending">
       <div class="containeritems">
         <CharacterCard
-        class="card"
+          class="card"
           v-for="character in characters"
           :key="character.id"
           :character="character"
@@ -11,9 +11,13 @@
       </div>
       <v-pagination
         v-model="page"
+        class="containerPagination"
         :length="optionsParams?.pages"
         @update:model-value="fetchDataCharacters()"
       ></v-pagination>
+    </div>
+    <div v-else class="custom__progressbar">
+      <v-progress-circular :size="100" color="primary" indeterminate />
     </div>
   </v-container>
 </template>
@@ -24,19 +28,27 @@ import CharacterResponse from "@/app/infrastructure/response/CharacterResponse";
 import CharacterRepository from "@/app/infrastructure/repository/CharacterRepository";
 import CharacterCard from "@/components/home/CharacterCard.vue";
 import { PaginationItems } from "@/utils/general.types";
-import { ref, Ref, onBeforeMount } from "vue";
+import { ref, Ref, watch } from "vue";
 
 const page = ref(1);
 const optionsParams: Ref<PaginationItems | null> = ref(null);
 const characters = ref<Character[]>([]);
+const pending = ref(true);
 
-onBeforeMount(async () => {
-  const response = await CharacterRepository.fetchMany();
+const fetchDataFromApi = async (page: number) => {
+  pending.value = true;
+  const response = await CharacterRepository.fetchMany({
+    page: page,
+  });
+
   if (response) {
     optionsParams.value = response.info;
     characters.value = Character.many(response.results as CharacterResponse[]);
   }
-});
+  pending.value = false;
+};
+
+watch(page, () => fetchDataFromApi(page.value), { immediate: true });
 
 const fetchDataCharacters = () => {};
 </script>
@@ -44,8 +56,12 @@ const fetchDataCharacters = () => {};
 <style lang="scss" scoped>
 .containeritems {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 1rem;
 }
 
+.containerPagination {
+  margin: 2rem auto;
+  max-width: 40%;
+}
 </style>
