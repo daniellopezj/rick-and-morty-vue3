@@ -1,4 +1,5 @@
 import { CharacterLocation, CharacterOrigin } from "@/utils/general.types";
+import CharacterResponse from "../infrastructure/response/CharacterResponse";
 
 
 export default class Character {
@@ -14,7 +15,7 @@ export default class Character {
   url: string;
   created: string;
 
-  constructor(id = 0, name = '', status = '', species = '', gender = '', origin = null, location = null, image = '', episode = [], url = '', created = '',) {
+  constructor(id = 0, name = '', status = '', species = '', gender = '', origin: CharacterLocation | null = null, location: CharacterLocation | null = null, image = '', episode:Array<string> = [], url = '', created = '',) {
     this.id = id
     this.name = name
     this.status = status
@@ -27,4 +28,27 @@ export default class Character {
     this.url = url
     this.created = created
   }
+
+  static one(item: CharacterResponse) {
+    return new Character(
+      item.id,
+      item.name,
+      item.status,
+      item.species,
+      item.gender,
+      item.origin,
+      item.location,
+      item.image,
+      item.episode,
+      item.url,
+      item.created,
+    );
+  }
+
+  static many(items: CharacterResponse[]) {
+    return items.map((item: CharacterResponse) =>
+      Character.one(item),
+    );
+  }
+
 }

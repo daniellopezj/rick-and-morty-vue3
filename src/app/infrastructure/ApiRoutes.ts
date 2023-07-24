@@ -1,11 +1,10 @@
 const BasePrefix = '/api';
-const BaseCharacters = `${BasePrefix}/characters`;
+const BaseCharacter = `${BasePrefix}/character`;
 
 const ApiRoutes = {
-
   Characters: {
-    FetchMany: BaseCharacters,
-    ShowOne: (id: string) => `${BaseCharacters}/${id}`,
+    FetchMany: BaseCharacter,
+    ShowOne: (id: string) => `${BaseCharacter}/${id}`,
   },
 
 };

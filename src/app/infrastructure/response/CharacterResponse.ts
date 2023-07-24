@@ -6,8 +6,8 @@ export default interface CharacterResponse{
   status: string;
   species: string;
   gender: string;
-  origin: CharacterOrigin;
-  location: CharacterLocation;
+  origin: CharacterOrigin | null;
+  location: CharacterLocation| null;
   image: string;
   episode: Array<string>;
   url: string;
