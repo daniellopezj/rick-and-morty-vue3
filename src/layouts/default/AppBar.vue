@@ -1,12 +1,13 @@
 <template>
   <v-app-bar>
-    <v-img cover class="logo" src="/logo.svg" />
-    <v-app-bar-title> Ricky and Morty </v-app-bar-title>
+    <v-img @click="()=> router.push('/')" cover class="logo" src="/logo.svg" />
+    <v-app-bar-title style="cursor: pointer;" @click="()=> router.push('/')"> Ricky and Morty </v-app-bar-title>
   </v-app-bar>
 </template>
 
 <script lang="ts" setup>
-//
+import {  useRouter } from 'vue-router';
+const router = useRouter();
 </script>
 
 <style lang="scss" scoped>
@@ -19,7 +20,6 @@
 
 .header-title {
   display: flex;
-
   align-items: center;
 }
 </style>

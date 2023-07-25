@@ -1,7 +1,5 @@
 import { CharacterLocation, CharacterOrigin } from "@/utils/general.types";
-import CharacterResponse from "../infrastructure/response/CharacterResponse";
-
-
+import CharacterResponse from "@/app/infrastructure/response/CharacterResponse";
 export default class Character {
   id: number;
   name: string;
@@ -15,7 +13,7 @@ export default class Character {
   url: string;
   created: string;
 
-  constructor(id = 0, name = '', status = '', species = '', gender = '', origin: CharacterLocation | null = null, location: CharacterLocation | null = null, image = '', episode:Array<string> = [], url = '', created = '',) {
+  constructor(id = 0, name = '', status = '', species = '', gender = '', origin: CharacterLocation | null = null, location: CharacterLocation | null = null, image = '', episode: Array<string> = [], url = '', created = '',) {
     this.id = id
     this.name = name
     this.status = status
