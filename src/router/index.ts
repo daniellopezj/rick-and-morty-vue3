@@ -13,12 +13,12 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'Character',
+        name: 'characterList',
         component: () => import('@/views/CharacterList.vue'),
       },
       {
         path: ':idCharacter',
-        name: 'character',
+        name: 'characterDetail',
         component: () => import('@/views/Character.vue'),
       },
     ],
@@ -34,8 +34,24 @@ const routes = [
       },
       {
         path: ':idEpisode',
-        name: 'episode',
+        name: 'episodeDetail',
         component: () => import('@/views/Episode.vue'),
+      },
+    ],
+  },
+  {
+    path: '/location',
+    component: () => import('@/layouts/default/Default.vue'),
+    children: [
+      {
+        path: '',
+        name: 'locationList',
+        component: () => import('@/views/LocationList.vue'),
+      },
+      {
+        path: ':idLocation',
+        name: 'locationDetail',
+        component: () => import('@/views/Location.vue'),
       },
     ],
   },
