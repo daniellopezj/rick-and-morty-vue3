@@ -14,23 +14,32 @@ import CharacterRepository from "@/app/infrastructure/repository/CharacterReposi
 import CharacterResponse from "@/app/infrastructure/response/CharacterResponse";
 import CharacterDetail from "@/components/character/CharacterDetail.vue";
 import CharacterEpisodeList from "@/components/character/CharacterEpisodeList.vue";
+import { useCharacterStore } from "@/store/useCharacterStore";
 import { ref, Ref, onBeforeMount } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute,useRouter  } from "vue-router";
 
 const route = useRoute();
+const router = useRouter();
 const character: Ref<Character> = ref(new Character());
 const loaded = ref(false);
+const characterStore = useCharacterStore();
 
 onBeforeMount(async () => {
-  const { error, data } = await CharacterRepository.fetchOne(
-    route.params.idCharacter as string
-  );
-  if (data) {
-    character.value = Character.one(data as CharacterResponse);
+  if (characterStore.character?.id === Number(route.params.idCharacter)) {
+    character.value = characterStore.character;
     loaded.value = true;
-  }
-  if (error) {
-    console.log(error);
+  } else {
+    const { error, data } = await CharacterRepository.fetchOne(
+      route.params.idCharacter as string
+    );
+    if (data) {
+      character.value = Character.one(data as CharacterResponse);
+      characterStore.setCharacter(character.value)
+      loaded.value = true;
+    }
+    if (error) {
+      router.push({ name: 'not-found' });
+    }
   }
 });
 </script>
