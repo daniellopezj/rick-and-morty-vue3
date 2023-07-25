@@ -1,5 +1,6 @@
 // Composables
 import { createRouter, createWebHistory } from 'vue-router'
+import NotFound from "@/views/NotFound.vue"
 
 const routes = [
   {
@@ -35,6 +36,11 @@ const routes = [
         component: () => import('@/views/Contact.vue'),
       },
     ],
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "not-found",
+    component: NotFound,
   },
 ]
 
