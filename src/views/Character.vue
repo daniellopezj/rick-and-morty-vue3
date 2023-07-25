@@ -1,7 +1,7 @@
 <template>
   <v-container v-if="loaded" class="character__container">
-    <CharacterDetail :character="character" />
-    <CharacterEpisodeList :character="character" />
+    <character-detail :character="character" />
+    <character-episode-list :character="character" />
   </v-container>
   <div v-else class="custom__progressbar">
     <v-progress-circular :size="100" color="primary" indeterminate />
@@ -12,8 +12,8 @@
 import Character from "@/app/domain/Character";
 import CharacterRepository from "@/app/infrastructure/repository/CharacterRepository";
 import CharacterResponse from "@/app/infrastructure/response/CharacterResponse";
-import CharacterDetail from "@/components/character/CharacterDetail.vue";
-import CharacterEpisodeList from "@/components/character/CharacterEpisodeList.vue";
+import CharacterDetail from "@/components/character/detail/CharacterDetail.vue";
+import CharacterEpisodeList from "@/components/character/detail/CharacterEpisodeList.vue";
 import { useCharacterStore } from "@/store/useCharacterStore";
 import { ref, Ref, onBeforeMount } from "vue";
 import { useRoute,useRouter  } from "vue-router";

@@ -2,7 +2,7 @@
   <div v-if="loaded">
     <h1 class="mt-4 mb-2">Episodios</h1>
     <div class="episodes__container" v-if="episodes.length">
-      <CharacterCardEpisode
+      <character-card-episode
         v-for="episode in episodes"
         :key="episode.id"
         :episode="episode"
@@ -20,7 +20,7 @@ import Character from "@/app/domain/Character";
 import Episode from "@/app/domain/Episode";
 import EpisodeRepository from "@/app/infrastructure/repository/EpisodeRepository";
 import EpisodeResponse from "@/app/infrastructure/response/EpisodeResponse";
-import CharacterCardEpisode from "@/components/character/CharacterCardEpisode.vue";
+import CharacterCardEpisode from "@/components/character/detail/CharacterCardEpisode.vue";
 import { ref, onMounted, PropType } from "vue";
 import { useRouter } from "vue-router";
 

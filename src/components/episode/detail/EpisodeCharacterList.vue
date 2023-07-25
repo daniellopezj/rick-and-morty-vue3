@@ -19,7 +19,7 @@ import Character from "@/app/domain/Character";
 import Episode from "@/app/domain/Episode";
 import CharacterRepository from "@/app/infrastructure/repository/CharacterRepository";
 import CharacterResponse from "@/app/infrastructure/response/CharacterResponse";
-import CharacterCard from '@/components/home/CharacterCard.vue'
+import CharacterCard from '@/components/character/list/CharacterCard.vue'
 import { ref, onMounted, PropType } from "vue";
 
 const props = defineProps({

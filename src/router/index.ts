@@ -5,19 +5,17 @@ import NotFound from "@/views/NotFound.vue"
 const routes = [
   {
     path: '/',
-    component: () => import('@/layouts/default/Default.vue'),
-    children: [
-      {
-        path: '',
-        name: 'Home',
-        component: () => import('@/views/Home.vue'),
-      },
-    ],
+    redirect: '/character',
   },
   {
     path: '/character',
     component: () => import('@/layouts/default/Default.vue'),
     children: [
+      {
+        path: '',
+        name: 'Character',
+        component: () => import('@/views/CharacterList.vue'),
+      },
       {
         path: ':idCharacter',
         name: 'character',
@@ -29,6 +27,11 @@ const routes = [
     path: '/episode',
     component: () => import('@/layouts/default/Default.vue'),
     children: [
+      {
+        path: '',
+        name: 'episodeList',
+        component: () => import('@/views/EpisodesList.vue'),
+      },
       {
         path: ':idEpisode',
         name: 'episode',
