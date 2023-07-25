@@ -11,4 +11,8 @@ export default class CharacterRepository {
   static fetchOne(characterId: string): Promise<CustomRequest> {
     return useBackend(ApiRoutes.Characters.ShowOne(characterId)) as Promise<CustomRequest>;
   }
+
+  static fetchByCharacter(stringCharacter: string): Promise<CustomRequest> {
+    return useBackend(ApiRoutes.Characters.ShowOne(stringCharacter)) as Promise<CustomRequest>;
+  }
 }

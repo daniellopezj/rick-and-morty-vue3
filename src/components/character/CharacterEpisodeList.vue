@@ -6,6 +6,7 @@
         v-for="episode in episodes"
         :key="episode.id"
         :episode="episode"
+        @click="() => router.push(`/episode/${episode.id}`)"
       />
     </div>
   </div>
@@ -21,6 +22,7 @@ import EpisodeRepository from "@/app/infrastructure/repository/EpisodeRepository
 import EpisodeResponse from "@/app/infrastructure/response/EpisodeResponse";
 import CharacterCardEpisode from "@/components/character/CharacterCardEpisode.vue";
 import { ref, onMounted, PropType } from "vue";
+import { useRouter } from "vue-router";
 
 const props = defineProps({
   character: {
@@ -29,6 +31,7 @@ const props = defineProps({
   },
 });
 
+const router = useRouter();
 const episodes = ref<Episode[]>([]);
 const loaded = ref(false);
 const extractIdEpisode = () => {

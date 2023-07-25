@@ -6,6 +6,7 @@ const ApiRoutes = {
   Characters: {
     FetchMany: BaseCharacter,
     ShowOne: (id: string) => `${BaseCharacter}/${id}`,
+    fetchByCharacter: (id: string) => `${BaseCharacter}/${id}`,
   },
   Episode: {
     FetchMany: BaseEpisode,

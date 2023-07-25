@@ -25,7 +25,17 @@ const routes = [
       },
     ],
   },
-
+  {
+    path: '/episode',
+    component: () => import('@/layouts/default/Default.vue'),
+    children: [
+      {
+        path: ':idEpisode',
+        name: 'episode',
+        component: () => import('@/views/Episode.vue'),
+      },
+    ],
+  },
   {
     path: '/contact',
     component: () => import('@/layouts/default/Contact.vue'),
