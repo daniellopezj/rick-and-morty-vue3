@@ -12,6 +12,7 @@ const routes = [
         name: 'Home',
         component: () => import('@/views/Home.vue'),
       },
+
     ],
   },
   {
@@ -19,13 +20,49 @@ const routes = [
     component: () => import('@/layouts/default/Default.vue'),
     children: [
       {
+        path: '',
+        name: 'characterList',
+        component: () => import('@/views/CharacterList.vue'),
+      },
+      {
         path: ':idCharacter',
-        name: 'character',
+        name: 'characterDetail',
         component: () => import('@/views/Character.vue'),
       },
     ],
   },
-
+  {
+    path: '/episode',
+    component: () => import('@/layouts/default/Default.vue'),
+    children: [
+      {
+        path: '',
+        name: 'episodeList',
+        component: () => import('@/views/EpisodesList.vue'),
+      },
+      {
+        path: ':idEpisode',
+        name: 'episodeDetail',
+        component: () => import('@/views/Episode.vue'),
+      },
+    ],
+  },
+  {
+    path: '/location',
+    component: () => import('@/layouts/default/Default.vue'),
+    children: [
+      {
+        path: '',
+        name: 'locationList',
+        component: () => import('@/views/LocationList.vue'),
+      },
+      {
+        path: ':idLocation',
+        name: 'locationDetail',
+        component: () => import('@/views/Location.vue'),
+      },
+    ],
+  },
   {
     path: '/contact',
     component: () => import('@/layouts/default/Contact.vue'),

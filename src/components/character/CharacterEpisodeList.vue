@@ -2,10 +2,11 @@
   <div v-if="loaded">
     <h1 class="mt-4 mb-2">Episodios</h1>
     <div class="episodes__container" v-if="episodes.length">
-      <CharacterCardEpisode
+      <EpisodeCard
         v-for="episode in episodes"
         :key="episode.id"
         :episode="episode"
+        @click="() => router.push(`/episode/${episode.id}`)"
       />
     </div>
   </div>
@@ -19,8 +20,9 @@ import Character from "@/app/domain/Character";
 import Episode from "@/app/domain/Episode";
 import EpisodeRepository from "@/app/infrastructure/repository/EpisodeRepository";
 import EpisodeResponse from "@/app/infrastructure/response/EpisodeResponse";
-import CharacterCardEpisode from "@/components/character/CharacterCardEpisode.vue";
+import EpisodeCard from "@/components/episode/EpisodeCard.vue";
 import { ref, onMounted, PropType } from "vue";
+import { useRouter } from "vue-router";
 
 const props = defineProps({
   character: {
@@ -29,6 +31,7 @@ const props = defineProps({
   },
 });
 
+const router = useRouter();
 const episodes = ref<Episode[]>([]);
 const loaded = ref(false);
 const extractIdEpisode = () => {
@@ -54,10 +57,9 @@ onMounted(async () => {
 <style scoped lang="scss">
 .episodes {
   &__container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 25px;
-    padding: 1rem 1.5rem;
-    overflow-x: auto;
   }
 }
 </style>

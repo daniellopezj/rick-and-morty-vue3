@@ -1,7 +1,9 @@
 <template>
   <v-container v-if="loaded" class="character__container">
-    <CharacterDetail :character="character" />
-    <CharacterEpisodeList :character="character" />
+    <div class="character__detail">
+      <character-card :character="character" />
+    </div>
+    <character-episode-list :character="character" />
   </v-container>
   <div v-else class="custom__progressbar">
     <v-progress-circular :size="100" color="primary" indeterminate />
@@ -12,11 +14,11 @@
 import Character from "@/app/domain/Character";
 import CharacterRepository from "@/app/infrastructure/repository/CharacterRepository";
 import CharacterResponse from "@/app/infrastructure/response/CharacterResponse";
-import CharacterDetail from "@/components/character/CharacterDetail.vue";
+import CharacterCard from "@/components/character/CharacterCard.vue";
 import CharacterEpisodeList from "@/components/character/CharacterEpisodeList.vue";
 import { useCharacterStore } from "@/store/useCharacterStore";
 import { ref, Ref, onBeforeMount } from "vue";
-import { useRoute,useRouter  } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute();
 const router = useRouter();
@@ -34,11 +36,11 @@ onBeforeMount(async () => {
     );
     if (data) {
       character.value = Character.one(data as CharacterResponse);
-      characterStore.setCharacter(character.value)
+      characterStore.setCharacter(character.value);
       loaded.value = true;
     }
     if (error) {
-      router.push({ name: 'not-found' });
+      router.push({ name: "not-found" });
     }
   }
 });
@@ -48,6 +50,10 @@ onBeforeMount(async () => {
 .character {
   &__container {
     max-width: 1200px;
+  }
+  &__detail{
+    max-width: 350px;
+    margin: auto;
   }
 }
 </style>

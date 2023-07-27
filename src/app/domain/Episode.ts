@@ -10,13 +10,13 @@ export default class Episode {
   created: string;
 
   constructor(
-    id: number,
-    name: string,
-    airDate: string,
-    episode: string,
-    characters: string[],
-    url: string,
-    created: string
+    id: number = 0,
+    name: string= '',
+    airDate: string= '',
+    episode: string= '',
+    characters: string[]= [],
+    url: string='',
+    created: string=''
   ) {
     this.id = id;
     this.name = name;

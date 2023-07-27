@@ -1,23 +1,24 @@
 <template>
-  <div class="characterCard__container">
-    <v-img class="characterCard__image" :src="character.image"> </v-img>
-    <div>name {{ character.name }}</div>
+  <div class="locationCard__container">
+    <div>name {{ location.name }}</div>
+    <div>type {{ location.type }}</div>
+    <div>dimension {{ location.dimension }}</div>
   </div>
 </template>
 
 <script setup lang="ts">
-import Character from "@/app/domain/Character";
+import Location from "@/app/domain/Location";
 import { PropType } from "vue";
 defineProps({
-  character: {
-    type: Object as PropType<Character>,
+  location: {
+    type: Object as PropType<Location>,
     required: true,
   },
 });
 </script>
 
 <style scoped lang="scss">
-.characterCard {
+.locationCard {
   &__container {
     cursor: pointer;
     display: grid;
@@ -25,7 +26,6 @@ defineProps({
     gap: 1rem;
     border-radius: 8px;
     background-color: rgb(60, 62, 68);
-
   }
   &__image {
     border-top-left-radius: 8px;
