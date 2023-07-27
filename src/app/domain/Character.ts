@@ -1,4 +1,4 @@
-import { CharacterLocation, CharacterOrigin } from "@/utils/general.types";
+import { CharacterLocation, CharacterOrigin } from "@/types/general.types";
 import CharacterResponse from "@/app/infrastructure/response/CharacterResponse";
 export default class Character {
   id: number;

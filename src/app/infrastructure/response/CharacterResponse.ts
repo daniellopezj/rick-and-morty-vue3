@@ -1,4 +1,4 @@
-import { CharacterLocation, CharacterOrigin } from "@/utils/general.types";
+import { CharacterLocation, CharacterOrigin } from "@/types/general.types";
 
 export default interface CharacterResponse{
   id: number;

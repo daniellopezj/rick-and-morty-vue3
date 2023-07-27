@@ -26,3 +26,9 @@ export interface CustomRequest {
   data?:unknown,
   error?: unknown
 }
+
+export const CharacterStatus = [
+  { value: 'alive', title: 'vivo' },
+  { value: 'dead', title: 'Muerto' },
+  { value: 'unknown', title: 'Desconocido' },
+]

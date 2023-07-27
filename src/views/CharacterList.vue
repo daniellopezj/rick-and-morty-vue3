@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="characterlist__container">
     <div v-if="!pending">
       <div class="containeritems">
         <character-card
@@ -58,10 +58,16 @@ const fetchDataCharacters = () => {};
 </script>
 
 <style lang="scss" scoped>
+
+.characterlist{
+&__container{
+  max-width: 1200px;
+}
+}
 .containeritems {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 4rem;
 }
 
 .containerPagination {
@@ -69,6 +75,7 @@ const fetchDataCharacters = () => {};
   max-width: 40%;
 }
 .card:hover {
-  opacity: 0.85;
+  opacity: 0.95;
 }
 </style>
+@/types/general.types

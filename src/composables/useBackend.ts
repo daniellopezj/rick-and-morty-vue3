@@ -1,4 +1,4 @@
-import { CustomRequest } from '@/utils/general.types';
+import { CustomRequest } from '@/types/general.types';
 import axios, {  AxiosRequestConfig } from 'axios';
 
 export const useBackend = async (

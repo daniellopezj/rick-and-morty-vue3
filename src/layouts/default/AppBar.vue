@@ -22,8 +22,7 @@
         class="topbar__theme"
         :icon="'mdi-theme-light-dark'"
         @click="toogleTheme"
-      >
-      </v-btn>
+      />
     </div>
     <v-btn :rounded="4" v-if="mobile" icon @click="toggleDrawer">
       <v-icon>mdi-menu</v-icon>
@@ -47,7 +46,12 @@
       </li>
     </ul>
     <div class="topbar__theme">
-      <v-btn elevation="0" color="iconMode" :icon="'mdi-theme-light-dark'" @click="toogleTheme" />
+      <v-btn
+        elevation="0"
+        color="iconMode"
+        :icon="'mdi-theme-light-dark'"
+        @click="toogleTheme"
+      />
     </div>
   </v-navigation-drawer>
 </template>
@@ -62,21 +66,26 @@ import Cookies from "js-cookie";
 
 const router = useRouter();
 const route = useRoute();
-
 const drawer = ref(false);
 
-const links = ref([
+console.log(route);
+const links = [
   { id: 0, title: "Inicio", path: "/" },
   { id: 1, title: "Personajes", path: "/character" },
   { id: 2, title: "Capitulos", path: "/episode" },
   { id: 3, title: "Ubicaciónes", path: "/location" },
-]);
+];
 
+const activeLink = computed(() => {
+  const index = links.findIndex((i) => {
+    if (i.id > 0) {
+      return route.path.includes(i.path);
+    }
+  });
+  return index !== -1 ? index : 0;
+});
 const { mobile } = useDisplay();
 const theme = useTheme();
-const activeLink = computed(() =>
-  links.value.findIndex((i) => route.path === i.path)
-);
 
 const toggleDrawer = () => {
   drawer.value = !drawer.value;

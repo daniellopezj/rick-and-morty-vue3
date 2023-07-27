@@ -1,6 +1,6 @@
 import { useBackend } from "@/composables/useBackend";
 import ApiRoutes from '@/app/infrastructure/ApiRoutes';
-import { ParamsMany, CustomRequest } from '@/utils/general.types';
+import { ParamsMany, CustomRequest } from '@/types/general.types';
 
 export default class CharacterRepository {
 

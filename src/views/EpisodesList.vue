@@ -72,3 +72,4 @@ const fetchDataEpisodes = () => {};
   opacity: 0.85;
 }
 </style>
+@/types/general.types
