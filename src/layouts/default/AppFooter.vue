@@ -1,20 +1,17 @@
 <template>
-  <v-footer color="background" class="appfooter__container">
-    <div class="bg-teal d-flex w-100 align-center px-4">
-      <strong>Get connected with us on social networks!</strong>
-      <v-spacer></v-spacer>
-
+  <v-footer  color="background" class="appfooter__container">
+    <div class="appfooter__content">
+      <span class="pr-1">
+        © {{ new Date().getFullYear() }} | made with
+        <strong> vue 3 TypeScript </strong></span
+      >
       <v-btn
         v-for="icon in icons"
         :key="icon.id"
-        class="mx-4"
         :icon="icon.icon"
-        variant="plain"
+        variant="text"
         size="small"
       ></v-btn>
-    </div>
-    <div class="px-4 py-2 bg-black text-center w-100">
-      {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
     </div>
   </v-footer>
 </template>
@@ -39,8 +36,14 @@ const icons = ref([
 <style scoped lang="scss">
 .appfooter {
   &__container {
-    padding: 0;
+    padding: 1rem 0;
     display: flex;
+    justify-content: center;
+    font-size: 0.9rem ;
+    opacity: 0.85;
+  }
+  &__content {
+  margin: auto;
   }
 }
 </style>
