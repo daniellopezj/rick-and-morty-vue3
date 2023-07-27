@@ -9,13 +9,17 @@
 //   $color-pack: false
 // );
 
-body{
-  background-color: rgb(39, 43, 51);
-}
+
 
 .custom__progressbar {
   margin: 5rem 0;
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }

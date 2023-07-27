@@ -19,7 +19,7 @@ import Character from "@/app/domain/Character";
 import Location from "@/app/domain/Location";
 import CharacterRepository from "@/app/infrastructure/repository/CharacterRepository";
 import CharacterResponse from "@/app/infrastructure/response/CharacterResponse";
-import CharacterCard from "@/components/character/list/CharacterCard.vue";
+import CharacterCard from "@/components/character/CharacterCard.vue";
 import { ref, onMounted, PropType } from "vue";
 
 const props = defineProps({
@@ -56,7 +56,6 @@ onMounted(async () => {
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 25px;
     padding: 1rem 1.5rem;
-    overflow-x: auto;
   }
 }
 </style>

@@ -27,7 +27,7 @@
 import Character from "@/app/domain/Character";
 import CharacterResponse from "@/app/infrastructure/response/CharacterResponse";
 import CharacterRepository from "@/app/infrastructure/repository/CharacterRepository";
-import CharacterCard from "@/components/character/list/CharacterCard.vue";
+import CharacterCard from "@/components/character/CharacterCard.vue";
 import { PaginationItems, PaginationParams } from "@/utils/general.types";
 import { ref, Ref, watch } from "vue";
 import { useRouter } from "vue-router";

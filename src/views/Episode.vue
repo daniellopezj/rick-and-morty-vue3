@@ -13,7 +13,7 @@
 import Episode from "@/app/domain/Episode";
 import EpisodeRepository from "@/app/infrastructure/repository/EpisodeRepository";
 import EpisodeResponse from "@/app/infrastructure/response/EpisodeResponse";
-import EpisodeCharacterList from "@/components/episode/detail/EpisodeCharacterList.vue";
+import EpisodeCharacterList from "@/components/episode/EpisodeCharacterList.vue";
 import { useEpisodeStore} from "@/store/useEpisodeStore";
 import { ref, Ref, onBeforeMount } from "vue";
 import { useRoute, useRouter } from "vue-router";

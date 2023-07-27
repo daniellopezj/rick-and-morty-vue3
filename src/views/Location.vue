@@ -12,7 +12,7 @@
 import Location from "@/app/domain/Location";
 import LocationRepository from "@/app/infrastructure/repository/LocationRepository";
 import LocationResponse from "@/app/infrastructure/response/LocationResponse";
-import LocationCharacterList from "@/components/location/detail/LocationCharacterList.vue";
+import LocationCharacterList from "@/components/location/LocationCharacterList.vue";
 import { useLocationStore } from "@/store/useLocationStore";
 import { ref, Ref, onBeforeMount } from "vue";
 import { useRoute, useRouter } from "vue-router";

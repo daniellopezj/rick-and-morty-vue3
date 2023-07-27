@@ -27,7 +27,7 @@
 import Location from "@/app/domain/Location";
 import LocationResponse from "@/app/infrastructure/response/LocationResponse";
 import LocationRepository from "@/app/infrastructure/repository/LocationRepository";
-import LocationCard from "@/components/location/list/LocationCard.vue";
+import LocationCard from "@/components/location/LocationCard.vue";
 import { PaginationItems, PaginationParams } from "@/utils/general.types";
 import { ref, Ref, watch } from "vue";
 import { useRouter } from "vue-router";

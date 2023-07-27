@@ -27,7 +27,7 @@
 import Episode from "@/app/domain/Episode";
 import EpisodeResponse from "@/app/infrastructure/response/EpisodeResponse";
 import EpisodeRepository from "@/app/infrastructure/repository/EpisodeRepository";
-import EpisodeCard from "@/components/episode/list/EpisodeCard.vue";
+import EpisodeCard from "@/components/episode/EpisodeCard.vue";
 import { PaginationItems, PaginationParams } from "@/utils/general.types";
 import { ref, Ref, watch } from "vue";
 import { useRouter } from "vue-router";

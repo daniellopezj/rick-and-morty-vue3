@@ -19,7 +19,7 @@ import Character from "@/app/domain/Character";
 import Episode from "@/app/domain/Episode";
 import CharacterRepository from "@/app/infrastructure/repository/CharacterRepository";
 import CharacterResponse from "@/app/infrastructure/response/CharacterResponse";
-import CharacterCard from '@/components/character/list/CharacterCard.vue'
+import CharacterCard from "@/components/character/CharacterCard.vue";
 import { ref, onMounted, PropType } from "vue";
 
 const props = defineProps({
@@ -37,9 +37,7 @@ const extractIdEpisode = () => {
 
 onMounted(async () => {
   const listEpisodes = extractIdEpisode();
-  const { data } = await CharacterRepository.fetchByCharacter(
-    listEpisodes
-  );
+  const { data } = await CharacterRepository.fetchByCharacter(listEpisodes);
   if (data) {
     if (Array.isArray(data)) {
       characters.value = Character.many(data as CharacterResponse[]);
@@ -55,10 +53,9 @@ onMounted(async () => {
 .episodes {
   &__container {
     display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 25px;
     padding: 1rem 1.5rem;
-    overflow-x: auto;
   }
 }
 </style>
