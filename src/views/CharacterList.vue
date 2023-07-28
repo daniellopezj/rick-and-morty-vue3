@@ -14,7 +14,7 @@
         rounded="circle"
         class="pagination"
         :length="optionsParams?.pages"
-        @update:model-value="fetchDataCharacters()"
+
       ></v-pagination>
     </div>
     <div v-else class="custom__progressbar">
@@ -51,8 +51,6 @@ const fetchDataFromApi = async (page: number) => {
 };
 
 watch(page, () => fetchDataFromApi(page.value), { immediate: true });
-
-const fetchDataCharacters = () => {};
 </script>
 
 <style lang="scss" scoped>
