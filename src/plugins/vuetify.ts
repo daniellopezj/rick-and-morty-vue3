@@ -2,8 +2,6 @@
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
 import { mdi } from 'vuetify/iconsets/mdi';
-
-// Composables
 import { createVuetify } from 'vuetify'
 
 export default createVuetify({
@@ -16,7 +14,9 @@ export default createVuetify({
           primary: '#1867C0',
           secondary: '#5CBBF6',
           iconMode: '#000000',
-          textActive: '#05ABA3'
+          textActive: '#05ABA3',
+          episodeCard:'#d3e5ff',
+          locationCard:'#c8ffa3',
         },
       },
       dark: {
@@ -25,7 +25,9 @@ export default createVuetify({
           navigationDrawer:'#000000',
           secondary: '#000000',
           iconMode: '#FFF9C4',
-          textActive: '#19F1FF'
+          textActive: '#19F1FF',
+          episodeCard:'#1e1b63',
+          locationCard:'#267b5e',
         },
       },
     },

@@ -1,6 +1,6 @@
 <template>
   <div v-if="loaded">
-    <h1 class="mt-4 mb-2">Episodios</h1>
+    <h2 class="mt-4 mb-2">Episodios</h2>
     <div class="episodes__container" v-if="episodes.length">
       <EpisodeCard
         v-for="episode in episodes"
@@ -60,6 +60,16 @@ onMounted(async () => {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 25px;
+  }
+}
+
+
+@media (max-width: 599px) {
+  .episodes__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: auto;
   }
 }
 </style>

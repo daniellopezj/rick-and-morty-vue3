@@ -1,6 +1,6 @@
 <template>
    <v-container>
-    <h1>pagina no encontrada</h1>
+    <h2>pagina no encontrada</h2>
   </v-container>
 </template>
 

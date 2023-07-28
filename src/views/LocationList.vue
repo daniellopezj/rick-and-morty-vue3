@@ -1,7 +1,7 @@
 <template>
-  <v-container>
+  <v-container class="global__container">
     <div v-if="!pending">
-      <div class="containeritems">
+      <div class="locationlist">
         <LocationCard
           class="card"
           v-for="location in locations"
@@ -12,7 +12,8 @@
       </div>
       <v-pagination
         v-model="page"
-        class="containerPagination"
+        rounded="circle"
+        class="pagination"
         :length="optionsParams?.pages"
         @update:model-value="fetchDataLocations()"
       ></v-pagination>
@@ -28,7 +29,7 @@ import Location from "@/app/domain/Location";
 import LocationResponse from "@/app/infrastructure/response/LocationResponse";
 import LocationRepository from "@/app/infrastructure/repository/LocationRepository";
 import LocationCard from "@/components/location/LocationCard.vue";
-import { PaginationItems, PaginationParams } from "@/utils/general.types";
+import { PaginationItems, PaginationParams } from "@/types/general.types";
 import { ref, Ref, watch } from "vue";
 import { useRouter } from "vue-router";
 
@@ -58,9 +59,9 @@ const fetchDataLocations = () => {};
 </script>
 
 <style lang="scss" scoped>
-.containeritems {
+.locationlist {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1rem;
 }
 
@@ -71,5 +72,11 @@ const fetchDataLocations = () => {};
 .card:hover {
   opacity: 0.85;
 }
+
+@media (max-width: 599px) {
+  .locationlist {
+    grid-template-columns: 1fr ;
+  }
+}
 </style>
-@/types/general.types
+

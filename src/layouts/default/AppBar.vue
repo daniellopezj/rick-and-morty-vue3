@@ -68,12 +68,11 @@ const router = useRouter();
 const route = useRoute();
 const drawer = ref(false);
 
-console.log(route);
 const links = [
   { id: 0, title: "Inicio", path: "/" },
   { id: 1, title: "Personajes", path: "/character" },
   { id: 2, title: "Capitulos", path: "/episode" },
-  { id: 3, title: "Ubicaciónes", path: "/location" },
+  { id: 3, title: "Ubicaciones", path: "/location" },
 ];
 
 const activeLink = computed(() => {
@@ -157,9 +156,4 @@ const toogleTheme = () => {
   }
 }
 
-@media (min-width: 600px) and (max-width: 959px) {
-}
-
-@media (min-width: 960px) {
-}
 </style>

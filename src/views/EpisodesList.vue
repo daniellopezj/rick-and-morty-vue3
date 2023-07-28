@@ -1,8 +1,8 @@
 <template>
-  <v-container>
+  <v-container class="global__container">
     <div v-if="!pending">
-      <div class="containeritems">
-        <EpisodeCard
+      <div class="episode__list">
+        <episode-card
           class="card"
           v-for="episode in episodes"
           :key="episode.id"
@@ -12,7 +12,8 @@
       </div>
       <v-pagination
         v-model="page"
-        class="containerPagination"
+        rounded="circle"
+        class="pagination"
         :length="optionsParams?.pages"
         @update:model-value="fetchDataEpisodes()"
       ></v-pagination>
@@ -28,7 +29,7 @@ import Episode from "@/app/domain/Episode";
 import EpisodeResponse from "@/app/infrastructure/response/EpisodeResponse";
 import EpisodeRepository from "@/app/infrastructure/repository/EpisodeRepository";
 import EpisodeCard from "@/components/episode/EpisodeCard.vue";
-import { PaginationItems, PaginationParams } from "@/utils/general.types";
+import { PaginationItems, PaginationParams } from "@/types/general.types";
 import { ref, Ref, watch } from "vue";
 import { useRouter } from "vue-router";
 
@@ -58,9 +59,9 @@ const fetchDataEpisodes = () => {};
 </script>
 
 <style lang="scss" scoped>
-.containeritems {
+.episode__list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1rem;
 }
 
@@ -71,5 +72,12 @@ const fetchDataEpisodes = () => {};
 .card:hover {
   opacity: 0.85;
 }
+
+@media (max-width: 599px) {
+  .episode__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
 </style>
-@/types/general.types

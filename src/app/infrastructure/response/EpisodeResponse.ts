@@ -1,4 +1,3 @@
-
 export default interface EpisodeResponse{
   id: number;
   name: string;

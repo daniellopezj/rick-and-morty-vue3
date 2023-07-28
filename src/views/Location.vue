@@ -1,6 +1,8 @@
 <template>
-  <v-container v-if="loaded" class="character__container">
-    Ubicación
+  <v-container v-if="loaded" class="global__container">
+    <div class="location__detail">
+    <location-card :location="location"/>
+   </div>
     <location-character-list :location="location" />
   </v-container>
   <div v-else class="custom__progressbar">
@@ -13,6 +15,7 @@ import Location from "@/app/domain/Location";
 import LocationRepository from "@/app/infrastructure/repository/LocationRepository";
 import LocationResponse from "@/app/infrastructure/response/LocationResponse";
 import LocationCharacterList from "@/components/location/LocationCharacterList.vue";
+import LocationCard from "@/components/location/LocationCard.vue";
 import { useLocationStore } from "@/store/useLocationStore";
 import { ref, Ref, onBeforeMount } from "vue";
 import { useRoute, useRouter } from "vue-router";
@@ -44,9 +47,10 @@ onBeforeMount(async () => {
 </script>
 
 <style scoped lang="scss">
-.character {
-  &__container {
-    max-width: 1200px;
-  }
+.location {
+  &__detail{
+    max-width: 350px;
+    margin: auto;
+}
 }
 </style>

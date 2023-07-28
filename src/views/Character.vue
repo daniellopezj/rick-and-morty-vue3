@@ -44,6 +44,7 @@ onBeforeMount(async () => {
     }
   }
 });
+
 </script>
 
 <style scoped lang="scss">
@@ -55,5 +56,15 @@ onBeforeMount(async () => {
     max-width: 350px;
     margin: auto;
   }
+}
+
+@media (max-width: 599px) {
+  .character {
+
+  &__detail{
+    max-width: 250px;
+    margin: auto;
+  }
+}
 }
 </style>

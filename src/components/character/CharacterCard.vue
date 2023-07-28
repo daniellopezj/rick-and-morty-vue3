@@ -1,8 +1,15 @@
 <template>
-  <div class="characterCard__container">
+  <div
+    class="characterCard__container"
+    @click="() => router.push(`/character/${character.id}`)"
+  >
     <div class="characterCard__content">
       <v-img
-        :class="{ 'characterCard__image-alive': status?.value === 'alive','characterCard__image-dead': status?.value === 'dead','characterCard__image-unknown': status?.value === 'unknown' }"
+        :class="{
+          'characterCard__image-alive': status?.value === 'alive',
+          'characterCard__image-dead': status?.value === 'dead',
+          'characterCard__image-unknown': status?.value === 'unknown',
+        }"
         class="characterCard__image"
         :src="character.image"
       >
@@ -27,7 +34,9 @@
 import Character from "@/app/domain/Character";
 import { PropType, computed } from "vue";
 import { CharacterStatus } from "@/types/general.types";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 const props = defineProps({
   character: {
     type: Object as PropType<Character>,
@@ -66,17 +75,18 @@ const status = computed(() =>
       border: 5px solid red;
     }
     &-unknown {
-      border: 5px solid rgb(180, 159, 2);
+      // border: 5px solid rgb(180, 159, 2);
+      border: 5px solid rgb(23, 2, 180);
     }
   }
 
-  &__name{
+  &__name {
     margin-top: 1.5rem;
     font-size: 1.1rem;
     font-weight: bold;
     line-height: 1.5rem;
   }
-  &__specie{
+  &__specie {
     font-size: 0.85rem;
     opacity: 0.75;
   }
@@ -102,7 +112,7 @@ const status = computed(() =>
       background-color: red;
     }
     &-unknown {
-      background-color: rgb(180, 159, 2);
+      background-color: rgb(23, 2, 180);
     }
   }
 }
