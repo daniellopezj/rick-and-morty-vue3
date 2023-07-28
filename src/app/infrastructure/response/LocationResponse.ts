@@ -1,4 +1,3 @@
-
 export default interface LocationResponse{
   id: number;
   name: string;
