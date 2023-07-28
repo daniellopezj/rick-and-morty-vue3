@@ -1,7 +1,8 @@
 <template>
-  <v-container v-if="loaded" class="character__container">
-    Episodio
-
+  <v-container v-if="loaded" class="global__container">
+    <div class="episode__detail">
+      <episode-card :episode="episode" />
+    </div>
     <episode-character-list :episode="episode" />
   </v-container>
   <div v-else class="custom__progressbar">
@@ -14,7 +15,8 @@ import Episode from "@/app/domain/Episode";
 import EpisodeRepository from "@/app/infrastructure/repository/EpisodeRepository";
 import EpisodeResponse from "@/app/infrastructure/response/EpisodeResponse";
 import EpisodeCharacterList from "@/components/episode/EpisodeCharacterList.vue";
-import { useEpisodeStore} from "@/store/useEpisodeStore";
+import EpisodeCard from "@/components/episode/EpisodeCard.vue";
+import { useEpisodeStore } from "@/store/useEpisodeStore";
 import { ref, Ref, onBeforeMount } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
@@ -45,9 +47,19 @@ onBeforeMount(async () => {
 </script>
 
 <style scoped lang="scss">
-.character {
-  &__container {
-    max-width: 1200px;
+.episode {
+  &__detail {
+    max-width: 350px;
+    margin: auto;
+  }
+}
+
+@media (max-width: 599px) {
+  .episode {
+    &__detail {
+      max-width: 250px;
+      margin: auto;
+    }
   }
 }
 </style>

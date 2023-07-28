@@ -1,6 +1,6 @@
 <template>
   <div v-if="loaded">
-    <h1 class="mt-4 mb-2">Personajes</h1>
+    <h2 class="mt-4 mb-2">Personajes</h2>
     <div class="episodes__container" v-if="characters.length">
       <character-card
         v-for="character in characters"
@@ -53,9 +53,8 @@ onMounted(async () => {
 .episodes {
   &__container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 25px;
-    padding: 1rem 1.5rem;
   }
 }
 </style>

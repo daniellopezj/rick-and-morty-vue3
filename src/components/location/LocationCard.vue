@@ -1,8 +1,10 @@
 <template>
   <div class="locationCard__container">
-    <div>name {{ location.name }}</div>
-    <div>type {{ location.type }}</div>
-    <div>dimension {{ location.dimension }}</div>
+    <span class="locationCard__name"> {{ location.name }}</span>
+    <span class="locationCard__type">tipo: {{ location.type }}</span>
+    <span class="locationCard__dimension"
+      >dimension: {{ location.dimension }}</span
+    >
   </div>
 </template>
 
@@ -21,15 +23,37 @@ defineProps({
 .locationCard {
   &__container {
     cursor: pointer;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
-    border-radius: 8px;
-    background-color: rgb(60, 62, 68);
+    border-radius: 1rem;
+    background-color: yellow;
+    color: rgb(var(--v-theme-on-background));
+    border: 3px solid rgb(var(--v-theme-on-background));
+    background-color: rgb(var(--v-theme-locationCard));
+
+    text-align: center;
+    padding: 1rem 0;
   }
-  &__image {
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+
+  &__container:hover {
+    opacity: 0.75;
+  }
+
+  &__name {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  &__type {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: rgb(var(--v-theme-background));
+    background-color: rgb(var(--v-theme-on-background));
+  }
+
+  &__dimension {
+    font-size: 0.85rem;
+    opacity: 0.75;
   }
 }
 </style>

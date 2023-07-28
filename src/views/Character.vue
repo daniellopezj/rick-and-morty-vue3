@@ -56,4 +56,14 @@ onBeforeMount(async () => {
     margin: auto;
   }
 }
+
+@media (max-width: 599px) {
+  .character {
+
+  &__detail{
+    max-width: 250px;
+    margin: auto;
+  }
+}
+}
 </style>

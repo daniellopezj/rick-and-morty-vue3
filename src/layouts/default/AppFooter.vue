@@ -2,7 +2,7 @@
   <v-footer  color="background" class="appfooter__container">
     <div class="appfooter__content">
       <span class="pr-1">
-        © {{ new Date().getFullYear() }} | made with
+        © {{ new Date().getFullYear() }} | creado con
         <strong> vue 3 TypeScript </strong></span
       >
       <v-btn
@@ -11,6 +11,7 @@
         :icon="icon.icon"
         variant="text"
         size="small"
+        @click="goTo(icon.link)"
       ></v-btn>
     </div>
   </v-footer>
@@ -31,6 +32,10 @@ const icons = ref([
     icon: "mdi-github",
   },
 ]);
+
+const goTo = (link: string)=>{
+  console.log(link)
+}
 </script>
 
 <style scoped lang="scss">

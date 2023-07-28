@@ -1,18 +1,18 @@
 <template>
-  <v-container class="characterlist__container">
+  <v-container class="global__container">
     <div v-if="!pending">
-      <div class="containeritems">
+      <div class="characters__list">
         <character-card
           class="card"
           v-for="character in characters"
           :key="character.id"
           :character="character"
-          @click="() => router.push(`/character/${character.id}`)"
         />
       </div>
       <v-pagination
         v-model="page"
-        class="containerPagination"
+        rounded="circle"
+        class="pagination"
         :length="optionsParams?.pages"
         @update:model-value="fetchDataCharacters()"
       ></v-pagination>
@@ -28,11 +28,9 @@ import Character from "@/app/domain/Character";
 import CharacterResponse from "@/app/infrastructure/response/CharacterResponse";
 import CharacterRepository from "@/app/infrastructure/repository/CharacterRepository";
 import CharacterCard from "@/components/character/CharacterCard.vue";
-import { PaginationItems, PaginationParams } from "@/utils/general.types";
+import { PaginationItems, PaginationParams } from "@/types/general.types";
 import { ref, Ref, watch } from "vue";
-import { useRouter } from "vue-router";
 
-const router = useRouter();
 const page = ref(1);
 const optionsParams: Ref<PaginationItems | null> = ref(null);
 const characters = ref<Character[]>([]);
@@ -58,24 +56,22 @@ const fetchDataCharacters = () => {};
 </script>
 
 <style lang="scss" scoped>
-
-.characterlist{
-&__container{
-  max-width: 1200px;
-}
-}
-.containeritems {
+.characters__list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 4rem;
 }
 
-.containerPagination {
-  margin: 2rem auto;
-  max-width: 40%;
-}
 .card:hover {
-  opacity: 0.95;
+  opacity: 0.9;
+}
+
+@media (max-width: 599px) {
+  .characters__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: auto;
+  }
 }
 </style>
-@/types/general.types
