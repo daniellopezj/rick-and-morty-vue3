@@ -2,15 +2,26 @@
   <v-container class="global__container">
     <div v-if="!pending">
       <div class="characters__input-container">
-        <v-text-field class="characters__input-element" :label="'Buscar personaje'" variant="underlined" density="compact"
+        <v-text-field class="characters__input-element" :label="'Buscar Personaje'" variant="underlined" density="compact"
           prepend-inner-icon="mdi-magnify" @input="searchHandle($event)" />
       </div>
-      <div class="characters__list">
-        <character-card class="characters__card" v-for="character in characters" :key="character.id"
-          :character="character" />
+      <div v-if="characters.length">
+        <div class="characters__list">
+          <character-card class="characters__card" v-for="character in characters" :key="character.id"
+            :character="character" />
+        </div>
+        <div v-if="optionsParams">
+          <v-pagination v-if="optionsParams.pages > 1" v-model="page" rounded="circle" class="pagination"
+            :length="optionsParams?.pages" @update:model-value="fetchDataFromApi()"></v-pagination>
+        </div>
       </div>
-      <v-pagination v-model="page" rounded="circle" class="pagination" :length="optionsParams?.pages"
-        @update:model-value="fetchDataFromApi()"></v-pagination>
+      <div v-else class="characters__empty">
+        <h2>No se encontraron personajes</h2>
+        <div class="characters__empty__image-container">
+          <v-img cover src="/empty-character.png" />
+        </div>
+
+      </div>
     </div>
     <div v-else class="custom__progressbar">
       <v-progress-circular :size="100" color="primary" indeterminate />
@@ -37,11 +48,14 @@ const fetchDataFromApi = async (loadingPage = true) => {
   if (loadingPage && !query.value) {
     pending.value = true;
   }
-  const { data } = await CharacterRepository.search({
+  const { data, error } = await CharacterRepository.search({
     name: query.value,
     page: page.value,
   });
-
+  if (error) {
+    characters.value = []
+    optionsParams.value = null
+  }
   if (data) {
     const newData = data as PaginationParams;
     optionsParams.value = newData.info;
@@ -67,9 +81,26 @@ watch(page, () => fetchDataFromApi(false), { immediate: true });
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 4rem;
   }
+
+  &__empty {
+    display: grid;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+
+    &__image {
+      &-container {
+        min-width: 400px;
+
+      }
+    }
+  }
+
   &__card {
     opacity: 0.9;
   }
+
   &__input {
     &-container {
       display: flex;
@@ -88,6 +119,7 @@ watch(page, () => fetchDataFromApi(false), { immediate: true });
       &-container {
         justify-content: flex-start;
       }
+
       &-element {
         max-width: 100%;
       }
@@ -105,11 +137,22 @@ watch(page, () => fetchDataFromApi(false), { immediate: true });
       margin: auto;
     }
 
+    &__empty {
+
+
+    &__image {
+      &-container {
+        min-width: 300px;
+      }
+    }
+  }
+
     &__input {
       &-container {
         display: flex;
         justify-content: flex-start;
       }
+
       &-element {
         max-width: 100%;
       }

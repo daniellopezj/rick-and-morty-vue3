@@ -156,4 +156,17 @@ const toogleTheme = () => {
   }
 }
 
+@media (min-width: 600px) and (max-width: 959px) {
+  .topbar {
+    &__active {
+      opacity: 1;
+      border-bottom: 2px solid rgba(var(--v-theme-textActive), 1);
+    }
+    &__theme {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
 </style>
