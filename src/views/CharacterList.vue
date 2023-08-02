@@ -1,21 +1,16 @@
 <template>
   <v-container class="global__container">
     <div v-if="!pending">
-      <div class="characters__list">
-        <character-card
-          class="card"
-          v-for="character in characters"
-          :key="character.id"
-          :character="character"
-        />
+      <div class="characters__input-container">
+        <v-text-field class="characters__input-element" :label="'Buscar personaje'" variant="underlined" density="compact"
+          prepend-inner-icon="mdi-magnify" @input="searchHandle($event)" />
       </div>
-      <v-pagination
-        v-model="page"
-        rounded="circle"
-        class="pagination"
-        :length="optionsParams?.pages"
-
-      ></v-pagination>
+      <div class="characters__list">
+        <character-card class="characters__card" v-for="character in characters" :key="character.id"
+          :character="character" />
+      </div>
+      <v-pagination v-model="page" rounded="circle" class="pagination" :length="optionsParams?.pages"
+        @update:model-value="fetchDataFromApi()"></v-pagination>
     </div>
     <div v-else class="custom__progressbar">
       <v-progress-circular :size="100" color="primary" indeterminate />
@@ -35,11 +30,16 @@ const page = ref(1);
 const optionsParams: Ref<PaginationItems | null> = ref(null);
 const characters = ref<Character[]>([]);
 const pending = ref(true);
+const query = ref('')
 
-const fetchDataFromApi = async (page: number) => {
-  pending.value = true;
-  const { data } = await CharacterRepository.fetchMany({
-    page: page,
+
+const fetchDataFromApi = async (loadingPage = true) => {
+  if (loadingPage && !query.value) {
+    pending.value = true;
+  }
+  const { data } = await CharacterRepository.search({
+    name: query.value,
+    page: page.value,
   });
 
   if (data) {
@@ -50,26 +50,70 @@ const fetchDataFromApi = async (page: number) => {
   pending.value = false;
 };
 
-watch(page, () => fetchDataFromApi(page.value), { immediate: true });
+const searchHandle = (event: Event) => {
+  query.value = (event.target as HTMLInputElement).value;
+  page.value = 1
+  fetchDataFromApi(false);
+};
+
+
+watch(page, () => fetchDataFromApi(false), { immediate: true });
 </script>
 
 <style lang="scss" scoped>
-.characters__list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 4rem;
+.characters {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 4rem;
+  }
+  &__card {
+    opacity: 0.9;
+  }
+  &__input {
+    &-container {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    &-element {
+      max-width: 30%;
+    }
+  }
 }
 
-.card:hover {
-  opacity: 0.9;
+@media (min-width: 600px) and (max-width: 959px) {
+  .characters {
+    &__input {
+      &-container {
+        justify-content: flex-start;
+      }
+      &-element {
+        max-width: 100%;
+      }
+    }
+  }
 }
+
 
 @media (max-width: 599px) {
-  .characters__list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin: auto;
+  .characters {
+    &__list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: auto;
+    }
+
+    &__input {
+      &-container {
+        display: flex;
+        justify-content: flex-start;
+      }
+      &-element {
+        max-width: 100%;
+      }
+    }
   }
 }
 </style>
