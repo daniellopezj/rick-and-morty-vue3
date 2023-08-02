@@ -74,10 +74,18 @@ const routes = [
       },
     ],
   },
+
   {
     path: "/:pathMatch(.*)*",
     name: "not-found",
-    component: NotFound,
+    component: () => import('@/layouts/default/Default.vue'),
+    children: [
+      {
+        path: '',
+        name: 'not-found',
+        component: () => import('@/views/NotFound.vue'),
+      },
+    ],
   },
 ]
 
