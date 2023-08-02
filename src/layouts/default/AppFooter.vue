@@ -11,7 +11,7 @@
         :icon="icon.icon"
         variant="text"
         size="small"
-        @click="goTo(icon.link)"
+        :href="icon.link" target="_blank"
       ></v-btn>
     </div>
   </v-footer>
@@ -23,19 +23,16 @@ import { ref } from "vue";
 const icons = ref([
   {
     id: 0,
-    link: "https://github.com/ldani-dev",
+    link: "https://linkedin.com/in/dani-dev/",
     icon: "mdi-linkedin",
   },
   {
     id: 1,
-    link: "https://www.linkedin.com/in/dani-dev/",
+    link: "https://github.com/ldani-dev",
     icon: "mdi-github",
   },
 ]);
 
-const goTo = (link: string)=>{
-  console.log(link)
-}
 </script>
 
 <style scoped lang="scss">

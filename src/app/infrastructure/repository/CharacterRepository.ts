@@ -1,6 +1,6 @@
 import { useBackend } from "@/composables/useBackend";
 import ApiRoutes from '@/app/infrastructure/ApiRoutes';
-import { ParamsMany, CustomRequest } from '@/types/general.types';
+import { ParamsMany, CustomRequest, paramsSearchCharacter } from '@/types/general.types';
 
 export default class CharacterRepository {
 
@@ -14,5 +14,8 @@ export default class CharacterRepository {
 
   static fetchByCharacter(stringCharacter: string): Promise<CustomRequest> {
     return useBackend(ApiRoutes.Characters.ShowOne(stringCharacter)) as Promise<CustomRequest>;
+  }
+  static search(params: paramsSearchCharacter): Promise<CustomRequest> {
+    return useBackend(ApiRoutes.Characters.Search, { params }) as Promise<CustomRequest>;
   }
 }

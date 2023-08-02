@@ -11,6 +11,10 @@ export interface CharacterOrigin {
 export interface ParamsMany {
   page: number;
 }
+export interface paramsSearchCharacter {
+  page: number;
+  name?:string;
+}
 export interface PaginationItems {
   count: number;
   pages: number;
