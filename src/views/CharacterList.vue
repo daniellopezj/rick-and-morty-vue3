@@ -3,7 +3,7 @@
     <div v-if="!pending">
       <div class="characters__input-container">
         <v-text-field class="characters__input-element" :label="'Buscar Personaje'" variant="underlined" density="compact"
-          prepend-inner-icon="mdi-magnify" @input="searchHandle($event)" />
+          :prepend-inner-icon="mdiMagnify" @input="searchHandle($event)" />
       </div>
       <div v-if="characters.length">
         <div class="characters__list">
@@ -18,7 +18,7 @@
       <div v-else class="characters__empty">
         <h2>No se encontraron personajes</h2>
         <div class="characters__empty__image-container">
-          <v-img cover src="/empty-character.png" />
+          <v-img alt="list-empty" cover src="/empty-character.png" />
         </div>
 
       </div>
@@ -36,6 +36,7 @@ import CharacterRepository from "@/app/infrastructure/repository/CharacterReposi
 import CharacterCard from "@/components/character/CharacterCard.vue";
 import { PaginationItems, PaginationParams } from "@/types/general.types";
 import { ref, Ref, watch } from "vue";
+import { mdiMagnify } from '@mdi/js'
 
 const page = ref(1);
 const optionsParams: Ref<PaginationItems | null> = ref(null);

@@ -3,12 +3,17 @@ module.exports = {
   env: {
     node: true,
   },
+  parser: 'vue-eslint-parser',
+  parserOptions: {
+    parser: '@typescript-eslint/parser',
+  },
   extends: [
-    'plugin:vue/vue3-essential',
-    'eslint:recommended',
-    '@vue/eslint-config-typescript',
+    'plugin:vue/vue3-recommended',
+    'plugin:prettier-vue/recommended',
+    'plugin:@typescript-eslint/recommended',
   ],
+  plugins: ['vitest'],
   rules: {
-    'vue/multi-word-component-names': 'off',
+    'no-console': 'off',
   },
 }

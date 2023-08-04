@@ -3,7 +3,7 @@
     <div class="notFound__container">
       <span class="notFound__title">Ooops!!</span>
       <div class="notFound__image-container">
-        <v-img cover src="/not-found.png" />
+        <v-img alt="not-found" cover src="/not-found.png" />
       </div>
       <span class="notFound__sub-title">No encontramos la página que buscas</span>
     </div>
