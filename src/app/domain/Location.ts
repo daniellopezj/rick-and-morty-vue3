@@ -10,13 +10,13 @@ export default class Location {
   created: string;
 
   constructor(
-    id: number = 0,
-    name: string= '',
-    type: string= '',
-    dimension: string= '',
-    residents: string[]= [],
-    url: string='',
-    created: string=''
+    id = 0,
+    name = "",
+    type = "",
+    dimension = "",
+    residents: string[] = [],
+    url = "",
+    created = ""
   ) {
     this.id = id;
     this.name = name;
@@ -35,14 +35,11 @@ export default class Location {
       item.dimension,
       item.residents,
       item.url,
-      item.created,
+      item.created
     );
   }
 
   static many(items: LocationResponse[]) {
-    return items.map((item: LocationResponse) =>
-    Location.one(item),
-    );
+    return items.map((item: LocationResponse) => Location.one(item));
   }
-
 }

@@ -13,18 +13,30 @@ export default class Character {
   url: string;
   created: string;
 
-  constructor(id = 0, name = '', status = '', species = '', gender = '', origin: CharacterLocation | null = null, location: CharacterLocation | null = null, image = '', episode: Array<string> = [], url = '', created = '',) {
-    this.id = id
-    this.name = name
-    this.status = status
-    this.species = species
-    this.gender = gender
-    this.location = location
-    this.image = image
-    this.origin = origin
-    this.episode = episode
-    this.url = url
-    this.created = created
+  constructor(
+    id = 0,
+    name = "",
+    status = "",
+    species = "",
+    gender = "",
+    origin: CharacterLocation | null = null,
+    location: CharacterLocation | null = null,
+    image = "",
+    episode: Array<string> = [],
+    url = "",
+    created = ""
+  ) {
+    this.id = id;
+    this.name = name;
+    this.status = status;
+    this.species = species;
+    this.gender = gender;
+    this.location = location;
+    this.image = image;
+    this.origin = origin;
+    this.episode = episode;
+    this.url = url;
+    this.created = created;
   }
 
   static one(item: CharacterResponse) {
@@ -39,14 +51,11 @@ export default class Character {
       item.image,
       item.episode,
       item.url,
-      item.created,
+      item.created
     );
   }
 
   static many(items: CharacterResponse[]) {
-    return items.map((item: CharacterResponse) =>
-      Character.one(item),
-    );
+    return items.map((item: CharacterResponse) => Character.one(item));
   }
-
 }

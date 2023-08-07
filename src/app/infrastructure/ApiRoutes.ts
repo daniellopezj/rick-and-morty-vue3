@@ -1,4 +1,4 @@
-const BasePrefix = '/api';
+const BasePrefix = "/api";
 const BaseCharacter = `${BasePrefix}/character`;
 const BaseEpisode = `${BasePrefix}/episode`;
 const BaseLocation = `${BasePrefix}/location`;
@@ -20,7 +20,6 @@ const ApiRoutes = {
     ShowOne: (id: string) => `${BaseLocation}/${id}`,
     fetchByCharacter: (id: string) => `${BaseLocation}/${id}`,
   },
-
 };
 
 export default ApiRoutes;

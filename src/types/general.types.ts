@@ -1,11 +1,11 @@
 export interface CharacterLocation {
-  name: string,
-  url: string
+  name: string;
+  url: string;
 }
 
 export interface CharacterOrigin {
-  name: string,
-  url: string
+  name: string;
+  url: string;
 }
 
 export interface ParamsMany {
@@ -13,7 +13,7 @@ export interface ParamsMany {
 }
 export interface paramsSearchCharacter {
   page: number;
-  name?:string;
+  name?: string;
 }
 export interface PaginationItems {
   count: number;
@@ -27,12 +27,12 @@ export interface PaginationParams {
 }
 
 export interface CustomRequest {
-  data?:unknown,
-  error?: unknown
+  data?: unknown;
+  error?: unknown;
 }
 
 export const CharacterStatus = [
-  { value: 'alive', title: 'vivo' },
-  { value: 'dead', title: 'Muerto' },
-  { value: 'unknown', title: 'Desconocido' },
-]
+  { value: "alive", title: "vivo" },
+  { value: "dead", title: "Muerto" },
+  { value: "unknown", title: "Desconocido" },
+];

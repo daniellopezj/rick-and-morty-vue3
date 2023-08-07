@@ -141,12 +141,12 @@ watch(page, () => fetchDataFromApi(false), { immediate: true });
     &__empty {
 
 
-    &__image {
-      &-container {
-        min-width: 300px;
+      &__image {
+        &-container {
+          min-width: 300px;
+        }
       }
     }
-  }
 
     &__input {
       &-container {

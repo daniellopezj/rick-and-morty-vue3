@@ -10,13 +10,13 @@ export default class Episode {
   created: string;
 
   constructor(
-    id: number = 0,
-    name: string= '',
-    airDate: string= '',
-    episode: string= '',
-    characters: string[]= [],
-    url: string='',
-    created: string=''
+    id = 0,
+    name = "",
+    airDate = "",
+    episode = "",
+    characters: string[] = [],
+    url = "",
+    created = ""
   ) {
     this.id = id;
     this.name = name;
@@ -35,14 +35,11 @@ export default class Episode {
       item.episode,
       item.characters,
       item.url,
-      item.created,
+      item.created
     );
   }
 
   static many(items: EpisodeResponse[]) {
-    return items.map((item: EpisodeResponse) =>
-    Episode.one(item),
-    );
+    return items.map((item: EpisodeResponse) => Episode.one(item));
   }
-
 }
