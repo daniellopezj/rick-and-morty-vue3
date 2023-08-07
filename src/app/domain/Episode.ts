@@ -1,4 +1,4 @@
-import EpisodeResponse from "@/app/infrastructure/response/EpisodeResponse";
+import EpisodeResponse from '@/app/infrastructure/response/EpisodeResponse';
 
 export default class Episode {
   id: number;
@@ -11,12 +11,12 @@ export default class Episode {
 
   constructor(
     id = 0,
-    name = "",
-    airDate = "",
-    episode = "",
+    name = '',
+    airDate = '',
+    episode = '',
     characters: string[] = [],
-    url = "",
-    created = ""
+    url = '',
+    created = ''
   ) {
     this.id = id;
     this.name = name;

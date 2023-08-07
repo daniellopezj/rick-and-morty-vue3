@@ -1,4 +1,4 @@
-import LocationResponse from "@/app/infrastructure/response/LocationResponse";
+import LocationResponse from '@/app/infrastructure/response/LocationResponse';
 
 export default class Location {
   id: number;
@@ -11,12 +11,12 @@ export default class Location {
 
   constructor(
     id = 0,
-    name = "",
-    type = "",
-    dimension = "",
+    name = '',
+    type = '',
+    dimension = '',
     residents: string[] = [],
-    url = "",
-    created = ""
+    url = '',
+    created = ''
   ) {
     this.id = id;
     this.name = name;

@@ -1,10 +1,10 @@
-import { useBackend } from "@/composables/useBackend";
-import ApiRoutes from "@/app/infrastructure/ApiRoutes";
+import { useBackend } from '@/composables/useBackend';
+import ApiRoutes from '@/app/infrastructure/ApiRoutes';
 import {
   ParamsMany,
   CustomRequest,
   paramsSearchCharacter,
-} from "@/types/general.types";
+} from '@/types/general.types';
 
 export default class CharacterRepository {
   static fetchMany(params: ParamsMany): Promise<CustomRequest> {

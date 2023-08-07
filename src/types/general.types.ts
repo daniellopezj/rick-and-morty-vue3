@@ -32,7 +32,7 @@ export interface CustomRequest {
 }
 
 export const CharacterStatus = [
-  { value: "alive", title: "vivo" },
-  { value: "dead", title: "Muerto" },
-  { value: "unknown", title: "Desconocido" },
+  { value: 'alive', title: 'vivo' },
+  { value: 'dead', title: 'Muerto' },
+  { value: 'unknown', title: 'Desconocido' },
 ];

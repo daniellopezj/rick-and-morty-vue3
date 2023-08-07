@@ -19,7 +19,7 @@ export default defineConfig({
         configFile: "src/styles/settings.scss",
       },
     }),
-    checker({ typescript: true }),
+    checker({ vueTsc: true }),
   ],
   define: {
     "process.env": {},

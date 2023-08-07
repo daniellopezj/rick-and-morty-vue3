@@ -1,8 +1,8 @@
-import { CustomRequest } from "@/types/general.types";
-import axios, { AxiosRequestConfig } from "axios";
+import { CustomRequest } from '@/types/general.types';
+import axios, { AxiosRequestConfig } from 'axios';
 
 export const useBackend = async (
-  url = "",
+  url = '',
   request?: AxiosRequestConfig // Axios-specific request type
 ): Promise<CustomRequest> => {
   try {

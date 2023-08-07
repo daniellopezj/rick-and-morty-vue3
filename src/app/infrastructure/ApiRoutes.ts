@@ -1,4 +1,4 @@
-const BasePrefix = "/api";
+const BasePrefix = '/api';
 const BaseCharacter = `${BasePrefix}/character`;
 const BaseEpisode = `${BasePrefix}/episode`;
 const BaseLocation = `${BasePrefix}/location`;

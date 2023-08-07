@@ -1,6 +1,6 @@
-import { useBackend } from "@/composables/useBackend";
-import { ParamsMany, CustomRequest } from "@/types/general.types";
-import ApiRoutes from "@/app/infrastructure/ApiRoutes";
+import { useBackend } from '@/composables/useBackend';
+import { ParamsMany, CustomRequest } from '@/types/general.types';
+import ApiRoutes from '@/app/infrastructure/ApiRoutes';
 
 export default class EpisodeRepository {
   static fetchMany(params: ParamsMany): Promise<CustomRequest> {
