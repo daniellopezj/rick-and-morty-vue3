@@ -4,6 +4,7 @@
       @click="() => router.push('/')"
       class="topbar__logo"
       src="/logo.svg"
+      alt="logo"
     />
     <ul v-if="!mobile" class="topbar__navigation">
       <li
@@ -17,15 +18,19 @@
     </ul>
     <div v-if="!mobile">
       <v-btn
+      aria-label="theme"
         elevation="0"
         color="iconMode"
         class="topbar__theme"
-        :icon="'mdi-theme-light-dark'"
+        :icon="mdiThemeLightDark"
         @click="toogleTheme"
       />
     </div>
-    <v-btn :rounded="4" v-if="mobile" icon @click="toggleDrawer">
-      <v-icon>mdi-menu</v-icon>
+    <v-btn
+    aria-label="menu"
+
+    :rounded="4" v-if="mobile" icon @click="toggleDrawer">
+      <v-icon :icon="mdiMenu"></v-icon>
     </v-btn>
   </v-app-bar>
   <v-navigation-drawer
@@ -49,7 +54,8 @@
       <v-btn
         elevation="0"
         color="iconMode"
-        :icon="'mdi-theme-light-dark'"
+        aria-label="theme"
+        :icon="mdiThemeLightDark"
         @click="toogleTheme"
       />
     </div>
@@ -62,6 +68,8 @@ import { useTheme } from "vuetify";
 import { ref } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useDisplay } from "vuetify";
+import { mdiMenu, mdiThemeLightDark } from '@mdi/js'
+
 import Cookies from "js-cookie";
 
 const router = useRouter();

@@ -40,9 +40,7 @@ const extractIdEpisode = () => {
 
 onMounted(async () => {
   const listEpisodes = extractIdEpisode();
-  const { data } = await EpisodeRepository.fetchByCharacter(
-    listEpisodes
-  );
+  const { data } = await EpisodeRepository.fetchByCharacter(listEpisodes);
   if (data) {
     if (Array.isArray(data)) {
       episodes.value = Episode.many(data as EpisodeResponse[]);
@@ -62,7 +60,6 @@ onMounted(async () => {
     gap: 25px;
   }
 }
-
 
 @media (max-width: 599px) {
   .episodes__container {

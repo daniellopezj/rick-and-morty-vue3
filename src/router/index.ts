@@ -1,6 +1,5 @@
 // Composables
-import { createRouter, createWebHistory } from 'vue-router'
-import NotFound from "@/views/NotFound.vue"
+import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
   {
@@ -12,7 +11,6 @@ const routes = [
         name: 'Home',
         component: () => import('@/views/Home.vue'),
       },
-
     ],
   },
   {
@@ -64,20 +62,8 @@ const routes = [
     ],
   },
   {
-    path: '/contact',
-    component: () => import('@/layouts/default/Contact.vue'),
-    children: [
-      {
-        path: '',
-        name: 'Contact',
-        component: () => import('@/views/Contact.vue'),
-      },
-    ],
-  },
-
-  {
-    path: "/:pathMatch(.*)*",
-    name: "not-found",
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
     component: () => import('@/layouts/default/Default.vue'),
     children: [
       {
@@ -87,18 +73,17 @@ const routes = [
       },
     ],
   },
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-
-})
+});
 
 router.afterEach(() => {
   if (typeof window !== 'undefined') {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-})
+});
 
-export default router
+export default router;

@@ -20,7 +20,6 @@ const ApiRoutes = {
     ShowOne: (id: string) => `${BaseLocation}/${id}`,
     fetchByCharacter: (id: string) => `${BaseLocation}/${id}`,
   },
-
 };
 
 export default ApiRoutes;

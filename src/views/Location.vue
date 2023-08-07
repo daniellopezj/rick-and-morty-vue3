@@ -1,8 +1,8 @@
 <template>
   <v-container v-if="loaded" class="global__container">
     <div class="location__detail">
-    <location-card :location="location"/>
-   </div>
+      <location-card :location="location" />
+    </div>
     <location-character-list :location="location" />
   </v-container>
   <div v-else class="custom__progressbar">
@@ -48,9 +48,9 @@ onBeforeMount(async () => {
 
 <style scoped lang="scss">
 .location {
-  &__detail{
+  &__detail {
     max-width: 350px;
     margin: auto;
-}
+  }
 }
 </style>
