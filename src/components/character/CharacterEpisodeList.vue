@@ -2,12 +2,8 @@
   <div v-if="loaded">
     <h2 class="mt-4 mb-2">Episodios</h2>
     <div class="episodes__container" v-if="episodes.length">
-      <EpisodeCard
-        v-for="episode in episodes"
-        :key="episode.id"
-        :episode="episode"
-        @click="() => router.push(`/episode/${episode.id}`)"
-      />
+      <EpisodeCard v-for="episode in episodes" :key="episode.id" :episode="episode"
+        @click="() => router.push(`/episode/${episode.id}`)" />
     </div>
   </div>
   <div v-else class="custom__progressbar">
