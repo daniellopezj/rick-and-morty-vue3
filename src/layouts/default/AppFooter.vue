@@ -6,6 +6,7 @@
         <strong> vue 3 TypeScript </strong></span
       >
       <v-btn
+      aria-label="social-network"
         v-for="icon in icons"
         :key="icon.id"
         :icon="icon.icon"
@@ -19,17 +20,18 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { mdiLinkedin, mdiGithub } from '@mdi/js'
 
 const icons = ref([
   {
     id: 0,
     link: "https://linkedin.com/in/dani-dev/",
-    icon: "mdi-linkedin",
+    icon: mdiLinkedin,
   },
   {
     id: 1,
     link: "https://github.com/ldani-dev",
-    icon: "mdi-github",
+    icon: mdiGithub,
   },
 ]);
 

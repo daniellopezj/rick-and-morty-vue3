@@ -5,6 +5,7 @@
   >
     <div class="characterCard__content">
       <v-img
+        alt="character"
         :class="{
           'characterCard__image-alive': status?.value === 'alive',
           'characterCard__image-dead': status?.value === 'dead',
