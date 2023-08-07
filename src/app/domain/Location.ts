@@ -1,5 +1,4 @@
 import LocationResponse from '@/app/infrastructure/response/LocationResponse';
-
 export default class Location {
   id: number;
   name: string;
