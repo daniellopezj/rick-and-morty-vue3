@@ -31,7 +31,6 @@ defineProps({
     color: rgb(var(--v-theme-on-background));
     border: 3px solid rgb(var(--v-theme-on-background));
     background-color: rgb(var(--v-theme-locationCard));
-
     text-align: center;
     padding: 1rem 0;
   }

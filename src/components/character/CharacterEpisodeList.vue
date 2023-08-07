@@ -2,8 +2,12 @@
   <div v-if="loaded">
     <h2 class="mt-4 mb-2">Episodios</h2>
     <div class="episodes__container" v-if="episodes.length">
-      <EpisodeCard v-for="episode in episodes" :key="episode.id" :episode="episode"
-        @click="() => router.push(`/episode/${episode.id}`)" />
+      <EpisodeCard
+        v-for="episode in episodes"
+        :key="episode.id"
+        :episode="episode"
+        @click="() => router.push(`/episode/${episode.id}`)"
+      />
     </div>
   </div>
   <div v-else class="custom__progressbar">
@@ -36,9 +40,7 @@ const extractIdEpisode = () => {
 
 onMounted(async () => {
   const listEpisodes = extractIdEpisode();
-  const { data } = await EpisodeRepository.fetchByCharacter(
-    listEpisodes
-  );
+  const { data } = await EpisodeRepository.fetchByCharacter(listEpisodes);
   if (data) {
     if (Array.isArray(data)) {
       episodes.value = Episode.many(data as EpisodeResponse[]);
@@ -58,7 +60,6 @@ onMounted(async () => {
     gap: 25px;
   }
 }
-
 
 @media (max-width: 599px) {
   .episodes__container {
