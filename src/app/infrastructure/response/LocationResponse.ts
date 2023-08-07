@@ -1,4 +1,4 @@
-export default interface LocationResponse{
+export default interface LocationResponse {
   id: number;
   name: string;
   type: string;

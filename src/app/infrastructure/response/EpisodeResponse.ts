@@ -1,4 +1,4 @@
-export default interface EpisodeResponse{
+export default interface EpisodeResponse {
   id: number;
   name: string;
   air_date: string;
