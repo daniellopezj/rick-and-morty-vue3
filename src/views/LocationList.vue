@@ -75,8 +75,7 @@ const fetchDataLocations = () => {};
 
 @media (max-width: 599px) {
   .locationlist {
-    grid-template-columns: 1fr ;
+    grid-template-columns: 1fr;
   }
 }
 </style>
-

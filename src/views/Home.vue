@@ -1,9 +1,8 @@
 <template>
   <v-container class="home__container">
     <div class="home__content">
-      <v-img cover class="home__image-name" src="/name.png" />
-      <v-img cover class="home__image-main" src="/home.png" />
-
+      <v-img alt="name" cover class="home__image-name" src="/name.png" />
+      <v-img alt="home" cover class="home__image-main" src="/home.png" />
       <div class="home__navigation">
         <span
           :key="link.id"
@@ -44,9 +43,11 @@ const links = [
       width: 50%;
       margin-top: -5%;
       height: min-content;
+      max-width: 600px;
     }
     &-main {
       width: 600px;
+      max-width: 600px;
     }
   }
   &__navigation {
