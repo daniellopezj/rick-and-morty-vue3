@@ -1,0 +1,37 @@
+.custom__progressbar {
+  margin: 5rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.global__container{
+  max-width: 1200px;
+}
+
+.pagination {
+  margin: 1rem auto;
+  max-width: 40%;
+}
+
+
+@media (max-width: 599px) {
+  .pagination {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 959px) {
+  .pagination {
+    max-width: 60%;
+  }
+}
+
+@media (min-width: 960px) {
+}

@@ -5,6 +5,7 @@
       class="topbar__logo"
       src="/logo.svg"
       alt="logo"
+      rel="preload"
     />
     <ul v-if="!mobile" class="topbar__navigation">
       <li
