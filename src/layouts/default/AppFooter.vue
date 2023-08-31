@@ -25,12 +25,12 @@ import { mdiLinkedin, mdiGithub } from '@mdi/js'
 const icons = ref([
   {
     id: 0,
-    link: "https://linkedin.com/in/dani-dev/",
+    link: "https://linkedin.com/in/daniel-lopezj/",
     icon: mdiLinkedin,
   },
   {
     id: 1,
-    link: "https://github.com/ldani-dev",
+    link: "https://github.com/daniellopezj",
     icon: mdiGithub,
   },
 ]);
