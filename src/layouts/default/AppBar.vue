@@ -19,7 +19,7 @@
     </ul>
     <div v-if="!mobile">
       <v-btn
-      aria-label="theme"
+        aria-label="theme"
         elevation="0"
         color="iconMode"
         class="topbar__theme"
@@ -28,9 +28,12 @@
       />
     </div>
     <v-btn
-    aria-label="menu"
-
-    :rounded="4" v-if="mobile" icon @click="toggleDrawer">
+      aria-label="menu"
+      :rounded="4"
+      v-if="mobile"
+      icon
+      @click="toggleDrawer"
+    >
       <v-icon :icon="mdiMenu"></v-icon>
     </v-btn>
   </v-app-bar>
@@ -69,7 +72,7 @@ import { useTheme } from "vuetify";
 import { ref } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useDisplay } from "vuetify";
-import { mdiMenu, mdiThemeLightDark } from '@mdi/js'
+import { mdiMenu, mdiThemeLightDark } from "@mdi/js";
 
 import Cookies from "js-cookie";
 
@@ -177,5 +180,4 @@ const toogleTheme = () => {
     }
   }
 }
-
 </style>
