@@ -33,11 +33,10 @@ Este proyecto utiliza la api  [Rick and Morty API](https://rickandmortyapi.com/)
 
 ## Contacto 🚀
 
-- Website: https://danidev.me/
-- LinkedIn: [@dani-dev](https://www.linkedin.com/in/dani-dev/)
-- Github: [@ldanidev](https://github.com/ldani-dev)
-- Twitter: [@ldanidev](https://twitter.com/ldanidev)
-
+- Website: https://daniellopezj.com/
+- LinkedIn: [@daniellopezj](https://www.linkedin.com/in/daniel-lopezj/)
+- Github: [@daniellopezj](https://github.com/daniellopezj)
+- Twitter: [@daniellopezj](https://twitter.com/daniellopezj_)
 
 ## Instalación
 
