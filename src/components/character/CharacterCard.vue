@@ -68,6 +68,7 @@ const status = computed(() =>
   }
 
   &__image {
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     &-alive {
       border: 5px solid green;
